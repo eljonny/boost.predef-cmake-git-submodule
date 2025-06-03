@@ -27,7 +27,7 @@ project( boost_predef VERSION "${BOOST_SUPERPROJECT_VERSION}" LANGUAGES NONE )
 add_library( boost_predef INTERFACE )
 
 # The only usage requirement is include dir for consumers.
-target_include_directories( boost_predef INTERFACE include )
+target_include_directories( boost_predef INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> )
 
 # Add an alias to be compatible with consumers that may have used the
 # FindBoost script.
